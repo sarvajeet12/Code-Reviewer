@@ -10,6 +10,7 @@ const port = process.env.PORT;
 
 const corsOption = {
     origin: "https://code-reviewer-client-b0dn.onrender.com",
+    // origin: "http://localhost:5173",
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials: true,
     allowedHeaders: ['Authorization', 'Content-Type'],

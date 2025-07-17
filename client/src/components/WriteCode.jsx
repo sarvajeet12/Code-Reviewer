@@ -4,6 +4,7 @@ import prism from "prismjs";
 import Editor from "react-simple-code-editor";
 import axios from "axios";
 
+
 const WriteCode = ({ setReviewText, setLoading }) => {
   const [code, setCode] = useState("// Write your code from here...");
 
@@ -37,11 +38,11 @@ const WriteCode = ({ setReviewText, setLoading }) => {
             prism.highlight(code, prism.languages.javascript, "javascript")
           }
           padding={10}
-          className="min-h-full text-white"
+          className="min-h-[35vh] sm:min-h-[85vh] text-white"
           style={{
             fontFamily: `"fira code", "Fira Mono", monospace`,
             fontSize: 15,
-            border:".1px solid gray"
+            border:".1px solid gray",
           }}
         />
       </div>

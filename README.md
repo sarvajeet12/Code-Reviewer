@@ -38,8 +38,8 @@ Welcome to **AI Code Reviewer**, a full-stack MERN application that empowers dev
 
 ## 📸 Screenshots
 
-![alt text](image.png)
-![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
 
 ---
 
@@ -53,6 +53,7 @@ Welcome to **AI Code Reviewer**, a full-stack MERN application that empowers dev
 
 3. **Get Instant Feedback:**  
    The AI responds with a markdown-formatted review, including:
+
    - Issues found (bugs, anti-patterns, security risks)
    - Suggested fixes (with improved code snippets)
    - Explanations and best practices
@@ -135,15 +136,16 @@ Code Reviewer/
 The AI reviewer is configured with the following system prompt:
 
 > **Role:** Senior Code Reviewer (7+ Years of Experience)  
-> **Responsibilities:**  
-> - Analyze, review, and improve code  
-> - Ensure code quality, best practices, efficiency, security, scalability  
-> - Provide constructive feedback and actionable suggestions  
-> - Highlight strengths and areas for improvement  
-> - Output includes:  
->   - ❌ Bad Code  
->   - 🔍 Issues  
->   - ✅ Recommended Fix  
+> **Responsibilities:**
+>
+> - Analyze, review, and improve code
+> - Ensure code quality, best practices, efficiency, security, scalability
+> - Provide constructive feedback and actionable suggestions
+> - Highlight strengths and areas for improvement
+> - Output includes:
+>   - ❌ Bad Code
+>   - 🔍 Issues
+>   - ✅ Recommended Fix
 >   - 💡 Improvements
 
 ---
@@ -152,22 +154,25 @@ The AI reviewer is configured with the following system prompt:
 
 ````markdown
 ❌ Bad Code:
+
 ```javascript
 function fetchData() {
-  let data = fetch('/api/data').then(response => response.json());
+  let data = fetch("/api/data").then((response) => response.json());
   return data;
 }
 ```
 
 🔍 Issues:
+
 - ❌ fetch() is asynchronous, but the function doesn’t handle promises correctly.
 - ❌ Missing error handling for failed API calls.
 
 ✅ Recommended Fix:
+
 ```javascript
 async function fetchData() {
   try {
-    const response = await fetch('/api/data');
+    const response = await fetch("/api/data");
     if (!response.ok) throw new Error("HTTP error! Status: ${response.status}");
     return await response.json();
   } catch (error) {
@@ -178,6 +183,7 @@ async function fetchData() {
 ```
 
 💡 Improvements:
+
 - ✔ Handles async correctly using async/await.
 - ✔ Error handling added to manage failed requests.
 - ✔ Returns null instead of breaking execution.
@@ -188,8 +194,6 @@ async function fetchData() {
 ## 🧑‍💻 Contributing
 
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
-
-
 
 ---
 
