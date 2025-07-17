@@ -14,7 +14,7 @@ const WriteCode = ({ setReviewText, setLoading }) => {
   const handleCode = async () => {
     try {
       setLoading(true);
-      const response = await axios.post("http://localhost:4000/api/ai/review", {
+      const response = await axios.post("https://code-reviewer-server-jyci.onrender.com/api/ai/review", {
         prompt: code,
       });
       setReviewText(response.data.response);
