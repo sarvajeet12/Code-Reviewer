@@ -44,9 +44,12 @@ const WriteCode = ({ setReviewText, setLoading }) => {
   const handleCode = async () => {
     try {
       setLoading(true);
-      const response = await axios.post("https://code-reviewer-server-jyci.onrender.com/api/ai/review", {
-        prompt: code,
-      });
+      const response = await axios.post(
+        "https://code-reviewer-server-jyci.onrender.com/api/ai/review",
+        {
+          prompt: code,
+        }
+      );
       setReviewText(response.data.response);
 
       // console.log("code response : ", response.data.response);
@@ -67,8 +70,19 @@ const WriteCode = ({ setReviewText, setLoading }) => {
     if (isListening) {
       SpeechRecognition.stopListening();
     } else {
-      resetTranscript();
-      SpeechRecognition.startListening({ continuous: true });
+      // Request mic permission before starting
+      navigator.mediaDevices
+        .getUserMedia({ audio: true })
+        .then(() => {
+          console.log("Mic access granted");
+          resetTranscript();
+          SpeechRecognition.startListening({ continuous: true });
+          setIsListening(true);
+        })
+        .catch((err) => {
+          console.error("Mic access denied:", err);
+          alert("Microphone access is required to use speech recognition.");
+        });
     }
 
     setIsListening(!isListening);
