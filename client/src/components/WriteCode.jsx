@@ -4,6 +4,8 @@ import prism from "prismjs";
 import Editor from "react-simple-code-editor";
 import axios from "axios";
 
+//Localhost :  http://localhost:4000
+
 const WriteCode = ({ setReviewText, setLoading }) => {
   // State
   const [code, setCode] = useState("// Write your code from here...");
@@ -12,10 +14,6 @@ const WriteCode = ({ setReviewText, setLoading }) => {
   useEffect(() => {
     prism.highlightAll();
   });
-
-  useEffect(() => {
-    console.log("Transcript:", transcript);
-  }, [transcript]);
 
   // Handle Code Function
   const handleCode = async () => {
