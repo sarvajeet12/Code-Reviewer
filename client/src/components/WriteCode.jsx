@@ -40,6 +40,10 @@ const WriteCode = ({ setReviewText, setLoading }) => {
     }
   }, [transcript]);
 
+  useEffect(() => {
+    console.log("Transcript:", transcript);
+  }, [transcript]);
+
   // Handle Code Function
   const handleCode = async () => {
     try {
@@ -63,29 +67,30 @@ const WriteCode = ({ setReviewText, setLoading }) => {
   // Toggle Listening Function
   const toggleListening = () => {
     if (!browserSupportsSpeechRecognition) {
-      alert("Browser does not support speech recognition.");
+      alert("Speech recognition not supported in your browser.");
+      console.log("Browser does not support SpeechRecognition");
       return;
     }
 
     if (isListening) {
       SpeechRecognition.stopListening();
+      setIsListening(false);
+      console.log("Stopped Listening");
     } else {
-      // Request mic permission before starting
       navigator.mediaDevices
         .getUserMedia({ audio: true })
         .then(() => {
-          console.log("Mic access granted");
+          console.log("Mic permission granted");
           resetTranscript();
           SpeechRecognition.startListening({ continuous: true });
           setIsListening(true);
+          console.log("Started Listening");
         })
         .catch((err) => {
-          console.error("Mic access denied:", err);
-          alert("Microphone access is required to use speech recognition.");
+          console.error("Mic access denied or error:", err);
+          alert("Please allow microphone access.");
         });
     }
-
-    setIsListening(!isListening);
   };
 
   return (
