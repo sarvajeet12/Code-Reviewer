@@ -9,8 +9,7 @@ const app = express();
 const port = process.env.PORT;
 
 const corsOption = {
-    // origin: "https://code-reviewer-client-b0dn.onrender.com",
-    origin: "https://code-reviewer-beige.vercel.app/",
+    origin: "https://code-reviewer-client-b0dn.onrender.com",
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials: true,
     allowedHeaders: ['Authorization', 'Content-Type'],
