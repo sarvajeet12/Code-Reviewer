@@ -1,4 +1,4 @@
-# 🚀 Project - AI Code Reviewe
+# 🚀 Project - AI Code Reviewer
 
 Welcome to **AI Code Reviewer**, a full-stack MERN application that empowers developers to write cleaner, smarter, and more efficient code with instant AI-powered feedback. This project leverages Google Gemini AI for advanced code review, linting, and best-practice suggestions, all wrapped in a modern, beautiful UI.
 
